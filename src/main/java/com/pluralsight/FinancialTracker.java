@@ -1,8 +1,13 @@
 package com.pluralsight;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class FinancialTracker {
@@ -52,7 +57,6 @@ public class FinancialTracker {
     }
 
     public static void loadTransactions(String fileName) {
-        // This method should load transactions from a file with the given file name.
         // If the file does not exist, it should be created.
         // The transactions should be stored in the `transactions` ArrayList.
         // Each line of the file represents a single transaction in the following format:
@@ -60,6 +64,23 @@ public class FinancialTracker {
         // For example: 2023-04-15|10:13:25|ergonomic keyboard|Amazon|-89.50
         // After reading all the transactions, the file should be closed.
         // If any errors occur, an appropriate error message should be displayed.
+        try (BufferedReader BR = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = BR.readLine()) != null){
+                String[] parts = line.split("\\|");
+                LocalDate date = LocalDate.parse(parts[0],DATE_FORMATTER);
+                LocalTime time = LocalTime.parse(parts[1],TIME_FORMATTER);
+                String description = parts[2];
+                String vendorName = parts[3];
+                double amount = Double.parseDouble(parts[4]);
+
+                Transaction transaction = new Transaction(date,time,description,vendorName,amount);
+                transactions.add(transaction);
+            }
+        } catch (Exception e) {
+            System.err.println("ERROR! reading file");
+        }
+
     }
 
     private static void addDeposit(Scanner scanner) {
@@ -68,12 +89,27 @@ public class FinancialTracker {
         // The amount should be a positive number.
         // After validating the input, a new `Transaction` object should be created with the entered values.
         // The new deposit should be added to the `transactions` ArrayList.
+        System.out.println("Please; Enter the date,time,description, vendor, and amount of a deposit.");
+        System.out.println("Notice the format of your Date,Time should look like this yyyy-MM-dd HH:mm:ss,:  ");
+        System.out.println("The Deposit should be positive!");
+        System.out.println("Enter localDate:\n");
+        String localDate = scanner.nextLine();
+        System.out.println("Enter localTime:\n");
+        String localTime = scanner.nextLine();
+        System.out.println("Enter the description of your item:\n ");
+        String description = scanner.nextLine();
+        System.out.println("Enter your vendorName:\n ");
+        String vendorName = scanner.nextLine();
+        System.out.println("Enter amount of your deposit:]\n ");
+        double amount = scanner.nextDouble();
+
+        scanner.close();
     }
 
     private static void addPayment(Scanner scanner) {
         // This method should prompt the user to enter the date, time, description, vendor, and amount of a payment.
         // The user should enter the date and time in the following format: yyyy-MM-dd HH:mm:ss
-        // The amount received should be a positive number then transformed to a negative number.
+        // The amount received should be a positive number than transformed to a negative number.
         // After validating the input, a new `Transaction` object should be created with the entered values.
         // The new payment should be added to the `transactions` ArrayList.
     }
@@ -175,6 +211,7 @@ public class FinancialTracker {
         // The method loops through the transactions list and checks each transaction's date against the date range.
         // Transactions that fall within the date range are printed to the console.
         // If no transactions fall within the date range, the method prints a message indicating that there are no results.
+
     }
 
     private static void filterTransactionsByVendor(String vendor) {
