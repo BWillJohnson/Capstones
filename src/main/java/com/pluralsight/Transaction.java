@@ -18,6 +18,16 @@ public class Transaction {
         this.amount = amount;
     }
 
+    public Transaction() {
+        getDate();
+        getTime();
+        getDescription();
+        getVendorName();
+        getAmount();
+    }
+
+
+
     public LocalDate getDate() {
         return date;
     }
