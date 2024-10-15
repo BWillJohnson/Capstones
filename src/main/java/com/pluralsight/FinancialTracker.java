@@ -113,7 +113,7 @@ public class FinancialTracker {
         double addDeposit = scanner.nextDouble();
         if (addDeposit <= 0 )
         {
-            System.out.println("Invalid input ");
+            System.err.println("Invalid input ");
             return;
         }
         Transaction transaction = new Transaction(date,time,description,vendor,addDeposit);
@@ -195,8 +195,7 @@ public class FinancialTracker {
     private static void displayLedger() {
         // This method should display a table of all transactions in the `transactions` ArrayList.
         // The table should have columns for date, time, description, vendor, and amount.
-        loadTransactions(FILE_NAME);
-        System.out.println(FILE_NAME);
+
 
 
 
