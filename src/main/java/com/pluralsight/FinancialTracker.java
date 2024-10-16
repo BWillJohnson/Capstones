@@ -246,9 +246,11 @@ public class FinancialTracker {
                 case "1":
                     // Generate a report for all transactions within the current month,
                     // including the date, time, description, vendor, and amount for each transaction.
+                    System.out.println("Here are the transaction for this month.");
                 case "2":
                     // Generate a report for all transactions within the previous month,
                     // including the date, time, description, vendor, and amount for each transaction.
+
                 case "3":
                     // Generate a report for all transactions within the current year,
                     // including the date, time, description, vendor, and amount for each transaction.
@@ -259,10 +261,10 @@ public class FinancialTracker {
                 case "5":
                     // Prompt the user to enter a vendor name, then generate a report for all transactions
                     // with that vendor, including the date, time, description, vendor, and amount for each transaction.
-                    System.out.println("What is the name of the vendor you want to search? ");
                     String vendorName = scanner.nextLine();
                     filterTransactionsByVendor(vendorName);
                     scanner.nextLine();
+                    break;
                 case "0":
                     running = false;
                 default:
@@ -279,6 +281,13 @@ public class FinancialTracker {
         // The method loops through the transactions list and checks each transaction's date against the date range.
         // Transactions that fall within the date range are printed to the console.
         // If no transactions fall within the date range, the method prints a message indicating that there are no results.
+        for (Transaction transaction : transactions) {
+            LocalDate sDate = LocalDate.of(2002,07,07);
+            LocalDate edate = LocalDate.of(2024,04,24);
+
+            System.out.println("transactions from" + startDate + "to " + endDate);
+
+        }
 
 
     }
@@ -289,11 +298,12 @@ public class FinancialTracker {
         // The method loops through the transactions list and checks each transaction's vendor name against the specified vendor name.
         // Transactions with a matching vendor name are printed to the console.
         // If no transactions match the specified vendor name, the method prints a message indicating that there are no results.
-      boolean exactName = false;
+        System.out.println("Enter vendor name: ");
+        boolean exactName = false;
         for (Transaction transaction : transactions) {
             if (transaction.getVendorName().equalsIgnoreCase(vendorName)) {
                 System.out.println(transaction);
-               exactName = true;
+                exactName = true;
             }
 
         }
