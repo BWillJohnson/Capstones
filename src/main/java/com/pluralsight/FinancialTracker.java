@@ -63,9 +63,8 @@ public class FinancialTracker {
             BufferedReader BR = new BufferedReader(new FileReader(fileName));
 
             String line;
-            while ((line = BR.readLine()) != null)
-            {
-               String [] parts = line.split("\\|");
+            while ((line = BR.readLine()) != null) {
+                String[] parts = line.split("\\|");
                 if (parts.length == 5) {
                     LocalDate date = LocalDate.parse(parts[0], DATE_FORMATTER);
                     LocalTime time = LocalTime.parse(parts[1], TIME_FORMATTER);
@@ -77,8 +76,7 @@ public class FinancialTracker {
                     transactions.add(transaction);
                 }
             }
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             System.err.println("ERROR! reading file");
         }
 
@@ -95,10 +93,10 @@ public class FinancialTracker {
         System.out.println("The Deposit should be positive!");
 
         System.out.println("Enter localDate:\n");
-        LocalDate date = LocalDate.parse(scanner.nextLine(),DATE_FORMATTER);
+        LocalDate date = LocalDate.parse(scanner.nextLine(), DATE_FORMATTER);
 
         System.out.println("Enter localTime:\n");
-        LocalTime time = LocalTime.parse(scanner.nextLine(),TIME_FORMATTER);
+        LocalTime time = LocalTime.parse(scanner.nextLine(), TIME_FORMATTER);
 
         System.out.println("Enter the description of your item:\n ");
         String description = scanner.nextLine();
@@ -112,13 +110,14 @@ public class FinancialTracker {
             System.err.println("Invalid input ");
             return;
         }
-       transactions.add(new Transaction(date,time,description,vendor,addDeposit));
+        transactions.add(new Transaction(date, time, description, vendor, addDeposit));
 
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME,true))){
-          String output = String.format("%s|%s|%s|%s|%.2f%n",date.format(DATE_FORMATTER),time.format(TIME_FORMATTER),description,vendor,addDeposit);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+            String output = String.format("%s|%s|%s|%s|%.2f%n", date.format(DATE_FORMATTER), time.format(TIME_FORMATTER), description, vendor, addDeposit);
             writer.write(output);
-            writer.newLine();
-        }catch (IOException e){
+            System.out.println("Notice! Deposit was successful!");
+            scanner.nextLine();
+        } catch (IOException e) {
             System.err.println("Error! adding Deposit");
         }
     }
@@ -131,34 +130,35 @@ public class FinancialTracker {
         // The new payment should be added to the `transactions` ArrayList.
         System.out.println("Enter information provided to add a payment. ");
 
-            System.out.println("Enter localDate:\n");
-            LocalDate lDate = LocalDate.parse(scanner.nextLine(), DATE_FORMATTER);
+        System.out.println("Enter localDate:\n");
+        LocalDate lDate = LocalDate.parse(scanner.nextLine(), DATE_FORMATTER);
 
-            System.out.println("Enter localTime:\n");
-            LocalTime lTime = LocalTime.parse(scanner.nextLine(), TIME_FORMATTER);
+        System.out.println("Enter localTime:\n");
+        LocalTime lTime = LocalTime.parse(scanner.nextLine(), TIME_FORMATTER);
 
-            System.out.println("Enter the description of your item:\n ");
-            String txt = scanner.nextLine();
+        System.out.println("Enter the description of your item:\n ");
+        String txt = scanner.nextLine();
 
-            System.out.println("Enter your vendorName:\n ");
-            String vn = scanner.nextLine();
+        System.out.println("Enter your vendorName:\n ");
+        String vn = scanner.nextLine();
 
-            System.out.println("Enter amount of your payment:\n ");
-            double payment = scanner.nextDouble();
+        System.out.println("Enter amount of your payment:\n ");
+        double payment = scanner.nextDouble();
 
-            if (payment > 0) {
-                System.out.println("Great your payment has now been updated.");
-            }
-            double addPay = payment * -1;
-            System.out.println(" This amount " + addPay + " has been deducted from your account.");
+        if (payment > 0) {
+            System.out.println("Great your payment has now been updated.");
+        }
+        double addPay = payment * -1;
+        System.out.println(" This amount " + addPay + " has been deducted from your account.");
 
-           transactions.add(new Transaction(lDate,lTime,txt,vn,addPay));
+        transactions.add(new Transaction(lDate, lTime, txt, vn, addPay));
 
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME,true))){
-            String output = String.format("%s|%s|%s|%s|%.2f%n",lDate.format(DATE_FORMATTER),lTime.format(TIME_FORMATTER),txt,vn,addPay);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+            String output = String.format("%s|%s|%s|%s|%.2f%n", lDate.format(DATE_FORMATTER), lTime.format(TIME_FORMATTER), txt, vn, addPay);
             writer.write(output);
-            writer.newLine();
-        }catch (IOException e){
+            System.out.println("Notice! Payment successful");
+            scanner.nextLine();
+        } catch (IOException e) {
             System.err.println("ERROR! adding payment");
         }
 
@@ -193,7 +193,7 @@ public class FinancialTracker {
                 case "H":
                     running = false;
                 default:
-                    System.out.println("Invalid option");
+                    System.err.println("Invalid option");
                     break;
             }
         }
@@ -259,6 +259,10 @@ public class FinancialTracker {
                 case "5":
                     // Prompt the user to enter a vendor name, then generate a report for all transactions
                     // with that vendor, including the date, time, description, vendor, and amount for each transaction.
+                    System.out.println("What is the name of the vendor you want to search? ");
+                    String vendorName = scanner.nextLine();
+                    filterTransactionsByVendor(vendorName);
+                    scanner.nextLine();
                 case "0":
                     running = false;
                 default:
@@ -276,13 +280,22 @@ public class FinancialTracker {
         // Transactions that fall within the date range are printed to the console.
         // If no transactions fall within the date range, the method prints a message indicating that there are no results.
 
+
     }
 
-    private static void filterTransactionsByVendor(String vendor) {
+    private static void filterTransactionsByVendor(String vendorName) {
         // This method filters the transactions by vendor and prints a report to the console.
         // It takes one parameter: vendor, which represents the name of the vendor to filter by.
         // The method loops through the transactions list and checks each transaction's vendor name against the specified vendor name.
         // Transactions with a matching vendor name are printed to the console.
         // If no transactions match the specified vendor name, the method prints a message indicating that there are no results.
+      boolean exactName = false;
+        for (Transaction transaction : transactions) {
+            if (transaction.getVendorName().equalsIgnoreCase(vendorName)) {
+                System.out.println(transaction);
+               exactName = true;
+            }
+
+        }
     }
 }
