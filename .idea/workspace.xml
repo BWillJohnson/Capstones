@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5b0828e-8209-40c1-8674-6956c6895681" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/transactions2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/FinancialTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/FinancialTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transactions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/transactions.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,5 +83,21 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pluralsight/FinancialTracker.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="scanner" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
