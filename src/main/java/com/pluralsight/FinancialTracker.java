@@ -246,7 +246,9 @@ public class FinancialTracker {
                 case "1":
                     // Generate a report for all transactions within the current month,
                     // including the date, time, description, vendor, and amount for each transaction.
-                    filterTransactionsByDate();
+                    LocalDate StartD = LocalDate.now();
+
+
                 case "2":
                     // Generate a report for all transactions within the previous month,
                     // including the date, time, description, vendor, and amount for each transaction.
@@ -282,12 +284,13 @@ public class FinancialTracker {
         // Transactions that fall within the date range are printed to the console.
         // If no transactions fall within the date range, the method prints a message indicating that there are no results.
         for (Transaction transaction : transactions) {
-            LocalDate sDate = LocalDate.of(2002,07,07);
-            LocalDate eDate = LocalDate.of(2024,04,24);
+            LocalDate transactionDate = transaction.getDate();
+            boolean eMonth = false;
 
             System.out.println("transactions from" + startDate + "to " + endDate + ":");
-            if ((sDate.isEqual(startDate) || sDate.isAfter(startDate)) && (eDate.isEqual(endDate) || eDate.isBefore(endDate))) {
+            if ((transactionDate.isEqual(startDate) || transactionDate.isAfter(startDate)) && (transactionDate.isEqual(endDate) || transactionDate.isBefore(endDate))) {
                 System.out.println(transaction);
+                eMonth = true;
             }
 
 
