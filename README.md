@@ -1,7 +1,7 @@
 # Project Title
 Financial-Tracker
 ## Description of the Project
-
+Financial-Tracker program is used to help user navigate through 
 
 Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
 
@@ -11,8 +11,15 @@ Briefly describe what this Java console application does. Mention its purpose an
 
 List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
 
-- As a user, I want to be able to input my data, so that the application can process it accordingly.
-- As a user, I want to receive immediate feedback, so I can understand what to do next.
+- As a customer, I want a toll to use to filter out transactions by Vendor.
+- As a customer, I want a Financial Tracker to provide a trail for transactions.
+- As a customer, I want the attributes of the transaction to be set in a format that is easy to read and not cluttered.
+- As a customer, I want the App to provide blunt prompts, so I can add a Deposit and or payment.
+- As a customer, I want an app that displays the transaction list with date and time.
+- As a customer , I want an app the that can take deposit and payment to be structured in a way that is easy to read, and separate from one another.
+- As a customer, I want to be able to filter out transaction by vendors on the financial tracker app.
+  Item statusDraft.
+  BWillJohnson opened 5 days ago
 
 ## Setup
 
