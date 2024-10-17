@@ -248,31 +248,32 @@ public class FinancialTracker {
                 case "1":
                     // Generate a report for all transactions within the current month,
                     // including the date, time, description, vendor, and amount for each transaction.
-                    LocalDate startD = LocalDate.now();
-                    LocalDate cMonth = LocalDate.now().withDayOfMonth(1);
+                    LocalDate startD = LocalDate.now().withDayOfMonth(1);
+                    LocalDate cMonth = LocalDate.now();
                     filterTransactionsByDate(cMonth, startD);
                     break;
                 case "2":
                     // Generate a report for all transactions within the previous month,
                     // including the date, time, description, vendor, and amount for each transaction.
-                    LocalDate endD = LocalDate.now();
-                    LocalDate pMonth = LocalDate.now().minusMonths(1).withDayOfMonth(1);
+                    LocalDate endD = LocalDate.now().minusMonths(1).withDayOfMonth(1);
+                    LocalDate pMonth = LocalDate.now().withDayOfMonth(1).minusDays(1);
                     filterTransactionsByDate(pMonth, endD);
                     break;
 
                 case "3":
                     // Generate a report for all transactions within the current year,
                     // including the date, time, description, vendor, and amount for each transaction.
-                    LocalDate startY = LocalDate.now();
-                    LocalDate cYear = LocalDate.now().withDayOfYear(1);
+                    LocalDate startY = LocalDate.now().withDayOfYear(1);
+                    LocalDate cYear = LocalDate.now();
                     filterTransactionsByDate(cYear, startY);
                     break;
                 case "4":
                     // Generate a report for all transactions within the previous year,
                     // including the date, time, description, vendor, and amount for each transaction.
-                    LocalDate endY = LocalDate.now();
-                    LocalDate pYear = LocalDate.now().minusYears(1).withDayOfYear(1);
-                    filterTransactionsByDate(pYear, endY);
+                    LocalDate rN = LocalDate.now();
+                    LocalDate startOfPreYear = rN.minusYears(1).withDayOfYear(1);
+                    LocalDate endOfPreYear = rN.minusYears(1).withMonth(12).withDayOfMonth(31);
+                    filterTransactionsByDate(startOfPreYear,endOfPreYear);
                     break;
                 case "5":
                     // Prompt the user to enter a vendor name, then generate a report for all transactions
@@ -298,20 +299,25 @@ public class FinancialTracker {
         // Transactions that fall within the date range are printed to the console.
         // If no transactions fall within the date range, the method prints a message indicating that there are no results.
 
-        boolean found = false;
+        boolean exactDate = false;
 
         for (Transaction transaction : transactions) {
             LocalDate transactionDate = transaction.getDate();
 
             // Check if the transaction date is within the range
-            if ((transactionDate.isAfter(startDate) || (transactionDate.isEqual(startDate)) &&
-                    (transactionDate.isBefore(endDate) || transactionDate.isEqual(endDate)))) {
+            if ((transactionDate.isBefore(startDate) || (transactionDate.isEqual(startDate)) &&
+                    (transactionDate.isAfter(endDate) || transactionDate.isEqual(endDate)))) {
                 System.out.println(transaction);
-                found = true;
+              exactDate = true;
             }
+            if (!transactionDate.isBefore(startDate)&& !transactionDate.isAfter(endDate)){
+                System.out.println(transaction);
+                exactDate = true;
+            }
+
         }
 
-        if (!found) {
+        if (!exactDate) {
             System.out.println("No transactions found within the specified date range.");
         }
 
