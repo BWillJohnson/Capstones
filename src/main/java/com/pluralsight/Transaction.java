@@ -10,7 +10,8 @@ public class Transaction {
     private String vendorName;
     private double amount;
 
-    public Transaction(LocalDate date, LocalTime time, String description, String vendorName, double amount) {
+    public Transaction(LocalDate date, LocalTime time, String description, String vendorName, double amount)
+    {
         this.date = date;
         this.time = time;
         this.description = description;
@@ -18,7 +19,8 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public Transaction() {
+    public Transaction()
+    {
         getDate();
         getTime();
         getDescription();
@@ -69,7 +71,8 @@ public class Transaction {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Transaction{" +
                 "date=" + date +
                 ", time=" + time +

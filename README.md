@@ -8,9 +8,6 @@ Briefly describe what this Java console application does. Mention its purpose an
 ![Class Diagram](path/to/your/class_diagram.png)
 
 ## User Stories
-
-List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
-
 - As a customer, I want a toll to use to filter out transactions by Vendor.
 - As a customer, I want a Financial Tracker to provide a trail for transactions.
 - As a customer, I want the attributes of the transaction to be set in a format that is easy to read and not cluttered.
@@ -22,7 +19,6 @@ List the user stories that guided the development of your application. Format th
   BWillJohnson opened 5 days ago
 
 ## Setup
-
 Instructions on how to set up and run the project using IntelliJ IDEA.
 
 ### Prerequisites
@@ -42,37 +38,35 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Technologies Used
 
-- Java: Mention the version you are using.
-- Any additional libraries or frameworks used in the project.
 
+intellij community edition 2022.3.2
 ## Demo
 
 Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
 
-![Application Screenshot](path/to/your/screenshot.png)
+![Application Screenshot](https://yearuptemp-my.sharepoint.com/:w:/g/personal/bjohnson_pgh_yearup_org/EUugH2uSRsNJpOV44iJ99hEBWz6zXmYiDEC3p7hFhM2hiw?e=7nsi5Y)
 
 ## Future Work
 
 Outline potential future enhancements or functionalities you might consider adding:
 
-- Additional feature to be developed.
-- Improvement of current functionalities.
+- JSON to make each column identifiable.
 
 ## Resources
 
 List resources such as tutorials, articles, or documentation that helped you during the project.
 
-- [Java Programming Tutorial](https://www.example.com)
-- [Effective Java](https://www.example.com)
+- W3Schools,Notebook,college
+- Instructor Raymond, with load transaction method
 
 ## Team Members
-
-- **Name 1** - Specific contributions or roles.
-- **Name 2** - Specific contributions or roles.
+N/A
 
 ## Thanks
 
 Express gratitude towards those who provided help, guidance, or resources:
 
-- Thank you to [Mentor's Name] for continuous support and guidance.
+- Thank you to [Raymond] for continuous support and guidance.
 - A special thanks to all teammates for their dedication and teamwork.
+
+By.Brandon Johnson
