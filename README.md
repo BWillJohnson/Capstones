@@ -1,14 +1,14 @@
 # Project Title
 Financial-Tracker
 ## Description of the Project
-Financial-Tracker program is used to help user navigate through 
+Financial-Tracker program is used to help user navigate through transaction database. easy to use easy to read it provides the whole package to log your data in more efficiently.
 
 Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
 
 ![Class Diagram](path/to/your/class_diagram.png)
 
 ## User Stories
-- As a customer, I want a toll to use to filter out transactions by Vendor.
+- As a customer, I want to use a feature that  filter out transactions by Vendor.
 - As a customer, I want a Financial Tracker to provide a trail for transactions.
 - As a customer, I want the attributes of the transaction to be set in a format that is easy to read and not cluttered.
 - As a customer, I want the App to provide blunt prompts, so I can add a Deposit and or payment.
@@ -44,8 +44,8 @@ intellij community edition 2022.3.2
 
 Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
 
-![Application Screenshot](https://yearuptemp-my.sharepoint.com/:w:/g/personal/bjohnson_pgh_yearup_org/EbqQ6OgdOE9KjBHZg6oXQjwBLrvODOT_EiwcFbuqDUmiPA?e=SzMzRs)
-
+![](C:\Users\Student\Desktop\Pluralsight\Capstones\FinnacialTracker\src\main\codeShots)![img_3.png](img_3.png)![img_4.png](img_4.png)![img_5.png](img_5.png)![img_6.png](img_6.png)![img_7.png](img_7.png)
+![img_8.png](img_8.png)![img_9.png](img_9.png)![img_10.png](img_10.png)![img_11.png](img_11.png)![img_12.png](img_12.png)![img_13.png](img_13.png)
 ## Future Work
 
 Outline potential future enhancements or functionalities you might consider adding:
@@ -58,7 +58,7 @@ List resources such as tutorials, articles, or documentation that helped you dur
 
 - W3Schools,Notebook,college
 - Instructor Raymond, with load transaction method,and filtering the dates
-
+- 
 ## Team Members
 N/A
 
