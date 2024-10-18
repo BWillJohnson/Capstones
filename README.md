@@ -57,7 +57,7 @@ Outline potential future enhancements or functionalities you might consider addi
 List resources such as tutorials, articles, or documentation that helped you during the project.
 
 - W3Schools,Notebook,college
-- Instructor Raymond, with load transaction method
+- Instructor Raymond, with load transaction method,and filtering the dates
 
 ## Team Members
 N/A
