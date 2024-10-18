@@ -44,7 +44,7 @@ intellij community edition 2022.3.2
 
 Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
 
-![Application Screenshot](https://yearuptemp-my.sharepoint.com/:w:/g/personal/bjohnson_pgh_yearup_org/EUugH2uSRsNJpOV44iJ99hEBWz6zXmYiDEC3p7hFhM2hiw?e=7nsi5Y)
+![Application Screenshot](https://yearuptemp-my.sharepoint.com/:w:/g/personal/bjohnson_pgh_yearup_org/EbqQ6OgdOE9KjBHZg6oXQjwBLrvODOT_EiwcFbuqDUmiPA?e=SzMzRs)
 
 ## Future Work
 
@@ -66,7 +66,7 @@ N/A
 
 Express gratitude towards those who provided help, guidance, or resources:
 
-- Thank you to [Raymond] for continuous support and guidance.
+- Thank you to [Raymond, Devin,cameron,emre] for continuous support and guidance.
 - A special thanks to all teammates for their dedication and teamwork.
 
 By.Brandon Johnson
